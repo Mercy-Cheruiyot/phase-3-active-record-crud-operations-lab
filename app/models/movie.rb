@@ -13,7 +13,7 @@ class Movie < ActiveRecord::Base
         Movie.count
     end
     def self.find_movie_with_id(id)
-        Movie.find_by(id:id)
+        Movie.find(id)
     end
     def self.find_movie_with_attributes(attr)
         Movie.find_by(attr) 
@@ -22,8 +22,8 @@ class Movie < ActiveRecord::Base
         Movie.where("release_date>2002")   
     end
 
-    def self.update_with_attributes(attr)
-        Movie.update(attr)
+    def update_with_attributes(attr)
+        self.update(attr)
     end
 
     def self.update_all_titles(title)
